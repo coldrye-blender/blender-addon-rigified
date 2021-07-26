@@ -1,1 +1,3 @@
-# rigified
+# Rigified Blender Addon
+
+
