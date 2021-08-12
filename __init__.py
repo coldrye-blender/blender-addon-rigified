@@ -1,42 +1,60 @@
-# TBD:LICENSE
+# blender-addon-rigified
+# Copyright (C) 2021 coldrye solutions, Carsten Klein and Contributors
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 
 bl_info = {
     'name': 'Rigified',
-    'version': (1, 0, 0, 0, 0),
-    # major-minor-patch[-state-increment]
-    # state: 0 - stable, 1 - alpha, 2 - beta, 3 - rc
-    # increment: 0 - for stable releases, 0..N for alpha, beta, rc
-    # stable releases omit both state and increment as they are always 0
-    'warning': 'This is an alpha release.',
-    # 'warning': 'This is a beta release.'
-    # 'warning': 'This is a release candidate release.'
     'author': 'Carsten Klein',
-    'blender': (2, 93, 0),
     'description': '',
     'support': 'COMMUNITY',
     'location': 'View3D > Sidebar > Rigify',
     'wiki_url': 'https://github.com/coldrye-solutions/blender-addon-rigified',
     'tracker_url': 'https://github.com/coldrye-solutions/blender-addon-rigified',
-    'category': 'Rigging'
+    'category': 'Rigging',
+    'version': (1, 0, 0, 1, 1, 2, 93, 0, 0),
+    'warning': '',
+    'blender': (2, 93, 0),
 }
 
 
 if 'bpy' in locals():
+    import sys
     import importlib
-    # FIXME: find all rigified modules and reload everything not just the top level modules
-    importlib.reload(state)
-    importlib.reload(operators)
-    importlib.reload(ui)
-    importlib.reload(preferences)
+    # order is important here
+    modules = [
+        'rigified.utils.rigify',
+        'rigified.utils.fs',
+        'rigified.utils.feature_set',
+        'rigified.commons.versioning',
+        'rigified.state',
+        'rigified.operators',
+        'rigified.ui',
+        'rigified.preferences'
+    ]
+    for key in modules:
+        importlib.reload(sys.modules[key])
+    del importlib
+    del sys
 else:
+    # do not remove, used as a canary for above dynamic reload
+    import bpy
     from . import state
     from . import operators
     from . import ui
     from . import preferences
-
-
-# do not remove, used as a canary for above dynamic reload
-import bpy
 
 
 def register():

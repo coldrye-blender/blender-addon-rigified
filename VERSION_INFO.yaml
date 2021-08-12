@@ -1,0 +1,9 @@
+name: Rigified
+version: 1.0.0-ALPHA1-2.93.0
+author: Carsten Klein
+description: TODO description
+category: Rigging
+support: COMMUNITY
+location: View3D > Sidebar > Rigify
+tracker_url: https://github.com/coldrye-solutions/blender-addon-rigified/issues
+wiki_url: https://github.com/coldrye-solutions/blender-addon-rigified/wiki
