@@ -15,11 +15,11 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import bpy
-from bpy.types import Menu, Panel
+from bpy.types import Panel
 from bpy.utils import register_class, unregister_class
 
 from .state import StateWrapper
-from .utils.fs import normalize_filename, try_get_or_init_feature_root
+from rigified.utils.fs import normalize_filename, try_get_or_init_feature_root
 
 
 class SIDEBAR_PT_rigified_tools_panel(Panel):

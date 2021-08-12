@@ -17,11 +17,11 @@
 import os
 
 # import bpy.props
-from bpy.props import BoolProperty, EnumProperty, PointerProperty, StringProperty
+from bpy.props import BoolProperty, EnumProperty, StringProperty
 # from bpy.utils import register_class, unregister_class
 from bpy.types import WindowManager
 
-from .utils.fs import try_get_or_init_meta_rigs_root, try_get_or_init_rigs_root, try_get_or_init_feature_sets_root
+from rigified.utils.fs import try_get_or_init_meta_rigs_root, try_get_or_init_rigs_root, try_get_or_init_feature_sets_root
 
 
 def _meta_rig_folder_items(self, context):

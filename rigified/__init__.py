@@ -50,7 +50,6 @@ if 'bpy' in locals():
     del sys
 else:
     # do not remove, used as a canary for above dynamic reload
-    import bpy
     from . import state
     from . import operators
     from . import ui

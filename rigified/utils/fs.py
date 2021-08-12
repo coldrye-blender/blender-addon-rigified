@@ -50,7 +50,7 @@ def normalize_filename(filename, is_category=False):
     # result = re.sub(r'^([0-9])(.+)$', r'cat_\1\2' if is_category else r'rig_\1\2', result)
     if is_category:
         # TODO: filter out _lib suffix as it is reserved
-        result = re.sub(r'[.]+', '.', result)
+        result = re.sub(r'[.]+', '', result)
         result = re.sub(r'^[.]+', '', result)
         result = re.sub(r'[.]+$', '', result)
     else:

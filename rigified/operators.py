@@ -23,8 +23,8 @@ from bpy.utils import register_class, unregister_class
 
 from rigify.utils.rig import write_metarig
 
-from .utils.fs import normalize_filename, try_get_or_init_meta_rigs_root, try_get_or_init_rigs_root
-from .utils.rigify import update_external_rigs
+from rigified.utils.fs import normalize_filename, try_get_or_init_meta_rigs_root, try_get_or_init_rigs_root
+from rigified.utils.rigify import update_external_rigs
 
 
 class OBJECT_OT_update_external_rigs(bpy.types.Operator):
